@@ -1,0 +1,38 @@
+﻿@model ICollection<Chef>
+<section id="chefs" class="chefs section-bg">
+        <div class="container" data-aos="fade-up">
+
+            <div class="section-header">
+                <h2>Chefs</h2>
+                <p>Our <span>Proffesional</span> Chefs</p>
+            </div>
+
+            <div class="row gy-4">
+                @foreach (var item in Model)
+                {
+                    <div class="col-lg-4 col-md-6 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100">
+                        <a asp-controller="Chefs" asp-action="Detail" asp-route-id="@item.Id">
+                            <div class="chef-member">
+                                <div class="member-img">
+                                    <img src="~/assets/img/chefs/@item.Image" class="img-fluid" alt="@item.Image">
+                                    <div class="social">
+                                        <a href="@item.ChefSocialMedia.TwitterUrl"><i class="bi bi-twitter"></i></a>
+                                        <a href="@item.ChefSocialMedia.FbUrl"><i class="bi bi-facebook"></i></a>
+                                        <a href="@item.ChefSocialMedia.IgUrl"><i class="bi bi-instagram"></i></a>
+                                        <a href="@item.ChefSocialMedia.InUrl"><i class="bi bi-linkedin"></i></a>
+                                    </div>
+                                </div>
+                                <div class="member-info">
+                                    <h4>@item.Name</h4>
+                                    <span>@item.Profession.Name</span>
+                                    <p>@item.Testimonial.About</p>
+                                </div>
+                            </div>
+                        </a>
+
+                    </div>
+                }
+            </div>
+
+        </div>
+    </section>
